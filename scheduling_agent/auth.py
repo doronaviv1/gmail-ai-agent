@@ -41,3 +41,8 @@ class GoogleAuthenticator:
         self.token_file.write_text(creds.to_json(), encoding="utf-8")
         return creds
 
+    def gmail_service(self):
+        return build("gmail", "v1", credentials=self.credentials())
+
+    def calendar_service(self):
+        return build("calendar", "v3", credentials=self.credentials())
