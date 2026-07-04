@@ -34,3 +34,10 @@ def main() -> None:
     parser.add_argument("command", choices=["run-once", "watch", "config"])
     parser.add_argument("--max-results", type=int, default=10)
     parser.add_argument("--log-level", default="INFO")
+    args = parser.parse_args()
+
+    logging.basicConfig(level=getattr(logging, args.log_level.upper()), format="%(asctime)s %(levelname)s %(message)s")
+    config = Config.from_env()
+
+    if args.command == "config":
+        data = asdict(config)
