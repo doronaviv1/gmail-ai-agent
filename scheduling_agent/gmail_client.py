@@ -73,3 +73,9 @@ class GmailClient:
         )
         return [message["id"] for message in response.get("messages", [])]
 
+    def get_message(self, message_id: str) -> EmailMessage:
+        raw = (
+            self.service.users()
+            .messages()
+            .get(userId="me", id=message_id, format="full")
+            .execute()
