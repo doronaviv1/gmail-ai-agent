@@ -35,3 +35,10 @@ def _extract_text(payload: dict[str, Any]) -> str:
         nested = _extract_text(part)
         if nested:
             return nested
+    return _decode_body(body.get("data"))
+
+
+@dataclass
+class GmailClient:
+    service: Any
+    processed_label_name: str
