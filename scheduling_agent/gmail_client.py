@@ -29,3 +29,9 @@ def _extract_text(payload: dict[str, Any]) -> str:
     parts = payload.get("parts", [])
     for part in parts:
         if part.get("mimeType") == "text/plain":
+            return _extract_text(part)
+
+    for part in parts:
+        nested = _extract_text(part)
+        if nested:
+            return nested
