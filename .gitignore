@@ -28,3 +28,9 @@ build/
 logs/
 tmp/
 
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE and OS
