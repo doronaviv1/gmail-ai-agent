@@ -27,3 +27,9 @@ The agent intentionally keeps Google credentials and user tokens outside Git. Us
 ## Repository Layout
 
 ```text
+.
+├── PRD.md
+├── Plan.md
+├── TODO.md
+├── README.md
+├── requirements.txt
