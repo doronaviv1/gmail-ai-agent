@@ -24,3 +24,9 @@ Automate first-pass meeting scheduling from Gmail by parsing natural language re
 7. Reply to the sender when a requested slot is unavailable.
 8. Avoid duplicate processing of the same email.
 9. Keep credentials and tokens out of Git.
+
+## Non-Goals
+
+- Multi-user admin console.
+- Full bidirectional negotiation across many participants.
+- Native push notification setup. Polling is sufficient for the first version.
