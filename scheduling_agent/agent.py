@@ -45,3 +45,9 @@ class SchedulingAgent:
         logger.info("Decision for %s: %s - %s", email.id, decision.action.value, decision.message)
 
         if decision.action == SchedulingAction.BOOK and decision.slot:
+            if self.config.dry_run:
+                logger.info("Dry run: would create calendar event for %s", decision.slot)
+            else:
+                self.scheduler.calendar.create_event(
+                    title=request.title,
+                    slot=decision.slot,
