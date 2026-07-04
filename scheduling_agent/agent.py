@@ -13,3 +13,9 @@ from .scheduler import Scheduler
 logger = logging.getLogger(__name__)
 
 
+@dataclass
+class SchedulingAgent:
+    config: Config
+    gmail: GmailClient
+    parser: LLMMeetingParser
+    scheduler: Scheduler
