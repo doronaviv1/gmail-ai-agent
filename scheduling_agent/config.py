@@ -27,3 +27,9 @@ class Config:
     openai_api_key: str | None
     openai_model: str
     google_credentials_file: str
+    google_token_file: str
+    google_calendar_id: str
+    gmail_query: str
+    processed_label: str
+    workday_start: time
+    workday_end: time
