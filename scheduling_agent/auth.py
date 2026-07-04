@@ -28,3 +28,9 @@ class GoogleAuthenticator:
         if creds and creds.valid:
             return creds
 
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            if not self.credentials_file.exists():
+                raise FileNotFoundError(
+                    f"Missing {self.credentials_file}. Download an OAuth Desktop client JSON from Google Cloud."
