@@ -41,3 +41,9 @@ def main() -> None:
 
     if args.command == "config":
         data = asdict(config)
+        data["timezone"] = config.timezone.key
+        data["openai_api_key"] = "***" if config.openai_api_key else None
+        print(json.dumps(data, default=str, indent=2))
+        return
+
+    agent = build_agent(config)
