@@ -76,3 +76,9 @@ class SchedulingAgent:
     def _conflict_body(self, decision: SchedulingDecision) -> str:
         if decision.slot:
             return (
+                "Thanks for reaching out. I am unavailable at the requested time:\n\n"
+                f"{decision.slot.start.isoformat()} to {decision.slot.end.isoformat()}\n\n"
+                "Please send another time that works for you."
+            )
+        return (
+            "Thanks for reaching out. I could not find an available time for that day. "
