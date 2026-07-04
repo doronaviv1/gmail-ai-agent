@@ -15,3 +15,10 @@ SCOPES = [
 ]
 
 
+class GoogleAuthenticator:
+    def __init__(self, credentials_file: str, token_file: str) -> None:
+        self.credentials_file = Path(credentials_file)
+        self.token_file = Path(token_file)
+
+    def credentials(self) -> Credentials:
+        creds = None
