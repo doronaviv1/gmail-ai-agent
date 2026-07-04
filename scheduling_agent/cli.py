@@ -28,3 +28,9 @@ def build_agent(config: Config) -> SchedulingAgent:
     )
     return SchedulingAgent(config=config, gmail=gmail, parser=parser, scheduler=scheduler)
 
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Gmail AI scheduling agent")
+    parser.add_argument("command", choices=["run-once", "watch", "config"])
+    parser.add_argument("--max-results", type=int, default=10)
+    parser.add_argument("--log-level", default="INFO")
