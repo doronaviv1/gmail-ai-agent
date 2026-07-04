@@ -42,3 +42,10 @@ Gmail polling
 6. Implement Calendar adapter.
 7. Implement LLM parser and deterministic fallback.
 8. Implement scheduler.
+9. Implement orchestration and CLI.
+10. Add tests with fakes.
+11. Add documentation and screenshots.
+
+## Deployment Plan
+
+Run as a local process, cron job, systemd service, container, or server task. For production, prefer a service account only if the Workspace domain supports domain-wide delegation; otherwise use OAuth Desktop credentials for a single user.
