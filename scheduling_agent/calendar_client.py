@@ -49,3 +49,5 @@ class CalendarClient:
             "start": {"dateTime": slot.start.isoformat()},
             "end": {"dateTime": slot.end.isoformat()},
             "attendees": [{"email": attendee} for attendee in attendees],
+        }
+        return self.service.events().insert(calendarId=self.calendar_id, body=event, sendUpdates="all").execute()
