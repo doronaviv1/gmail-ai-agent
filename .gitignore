@@ -21,3 +21,10 @@ dist/
 build/
 *.egg-info/
 
+# Local runtime files
+*.log
+*.sqlite
+*.sqlite3
+logs/
+tmp/
+
