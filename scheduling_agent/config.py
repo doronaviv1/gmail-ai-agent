@@ -21,3 +21,9 @@ def _parse_time(value: str, name: str) -> time:
     except ValueError as exc:
         raise ValueError(f"{name} must use HH:MM format") from exc
 
+
+@dataclass(frozen=True)
+class Config:
+    openai_api_key: str | None
+    openai_model: str
+    google_credentials_file: str
