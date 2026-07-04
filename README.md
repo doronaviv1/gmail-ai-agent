@@ -121,3 +121,10 @@ is:unread newer_than:2d ("meeting" OR "schedule" OR "call")
 The agent uses several safeguards:
 
 - It ignores emails that do not parse as meeting requests.
+- It defaults to `DRY_RUN=true`.
+- It never commits `credentials.json`, `token.json`, `.env`, caches, virtual environments, or local database files.
+- It logs decisions before taking external actions.
+- It marks processed messages with a Gmail label to avoid duplicate handling.
+
+## Tests
+
