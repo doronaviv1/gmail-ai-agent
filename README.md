@@ -14,3 +14,9 @@ The agent is designed for a single Google Workspace user. It polls Gmail for unr
 The codebase is split into small modules:
 
 - `scheduling_agent.auth`: OAuth authentication for Gmail and Calendar.
+- `scheduling_agent.gmail_client`: Gmail search, message parsing, and replies.
+- `scheduling_agent.calendar_client`: Free/busy lookup and event creation.
+- `scheduling_agent.llm_parser`: LLM-backed parsing with a deterministic fallback.
+- `scheduling_agent.scheduler`: Availability decisions and slot selection.
+- `scheduling_agent.skill`: Reusable AI skill wrapper for parse-and-schedule decisions.
+- `scheduling_agent.agent`: Main orchestration loop.
