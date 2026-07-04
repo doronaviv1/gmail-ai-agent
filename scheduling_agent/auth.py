@@ -34,3 +34,10 @@ class GoogleAuthenticator:
             if not self.credentials_file.exists():
                 raise FileNotFoundError(
                     f"Missing {self.credentials_file}. Download an OAuth Desktop client JSON from Google Cloud."
+                )
+            flow = InstalledAppFlow.from_client_secrets_file(str(self.credentials_file), SCOPES)
+            creds = flow.run_local_server(port=0)
+
+        self.token_file.write_text(creds.to_json(), encoding="utf-8")
+        return creds
+
