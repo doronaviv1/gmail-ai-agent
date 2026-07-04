@@ -30,3 +30,10 @@ class CalendarClient:
                 start=datetime.fromisoformat(item["start"].replace("Z", "+00:00")),
                 end=datetime.fromisoformat(item["end"].replace("Z", "+00:00")),
             )
+            for item in busy
+        ]
+
+    def is_available(self, slot: TimeSlot) -> bool:
+        return len(self.busy_slots(slot.start, slot.end)) == 0
+
+    def create_event(
