@@ -16,3 +16,10 @@ def _decode_body(data: str | None) -> str:
     return base64.urlsafe_b64decode(padded.encode("utf-8")).decode("utf-8", errors="replace")
 
 
+def _headers_by_name(headers: list[dict[str, str]]) -> dict[str, str]:
+    return {header["name"].lower(): header.get("value", "") for header in headers}
+
+
+def _extract_text(payload: dict[str, Any]) -> str:
+    mime_type = payload.get("mimeType")
+    body = payload.get("body", {})
