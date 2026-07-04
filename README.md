@@ -109,3 +109,9 @@ By default the agent searches:
 ```text
 is:unread newer_than:7d
 ```
+
+You can override this with `GMAIL_QUERY` in `.env`. For production, start with a restrictive query such as:
+
+```text
+is:unread newer_than:2d ("meeting" OR "schedule" OR "call")
+```
