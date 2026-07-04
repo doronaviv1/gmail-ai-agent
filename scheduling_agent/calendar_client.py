@@ -18,3 +18,9 @@ class CalendarClient:
             .query(
                 body={
                     "timeMin": start.isoformat(),
+                    "timeMax": end.isoformat(),
+                    "items": [{"id": self.calendar_id}],
+                }
+            )
+            .execute()
+        )
