@@ -36,3 +36,10 @@ Automate first-pass meeting scheduling from Gmail by parsing natural language re
 
 - The agent can run a single pass from the CLI.
 - The agent can run continuously with a configurable polling interval.
+- The parser returns a typed scheduling request object.
+- The scheduler can choose a free slot when only a day is requested.
+- The calendar client can call free/busy and event creation APIs.
+- The Gmail client can fetch message content and send thread replies.
+- Dry-run mode avoids external mutations.
+
+## Security Acceptance Criteria
