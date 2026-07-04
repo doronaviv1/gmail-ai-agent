@@ -70,3 +70,9 @@ class SchedulingAgent:
         return (
             "Thanks, I scheduled the meeting.\n\n"
             f"Start: {decision.slot.start.isoformat()}\n"
+            f"End: {decision.slot.end.isoformat()}\n"
+        )
+
+    def _conflict_body(self, decision: SchedulingDecision) -> str:
+        if decision.slot:
+            return (
