@@ -42,3 +42,9 @@ def _extract_text(payload: dict[str, Any]) -> str:
 class GmailClient:
     service: Any
     processed_label_name: str
+
+    def ensure_processed_label(self) -> str:
+        labels = self.service.users().labels().list(userId="me").execute().get("labels", [])
+        for label in labels:
+            if label.get("name") == self.processed_label_name:
+                return label["id"]
