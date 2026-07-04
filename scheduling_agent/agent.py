@@ -26,3 +26,9 @@ class SchedulingAgent:
         for message_id in self.gmail.search_messages(self.config.gmail_query, max_results=max_results):
             try:
                 email = self.gmail.get_message(message_id)
+                decision = self._handle_email(email)
+                decisions.append(decision)
+                if not self.config.dry_run:
+                    self.gmail.mark_processed(message_id, label_id)
+            except Exception:
+                logger.exception("Failed to process Gmail message %s", message_id)
