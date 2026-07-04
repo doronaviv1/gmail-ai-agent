@@ -96,3 +96,9 @@ Run continuously:
 python -m scheduling_agent.cli watch
 ```
 
+Inspect configuration:
+
+```bash
+python -m scheduling_agent.cli config
+```
+
