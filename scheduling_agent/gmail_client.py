@@ -86,3 +86,9 @@ class GmailClient:
             id=raw["id"],
             thread_id=raw["threadId"],
             sender=sender,
+            subject=headers.get("subject", ""),
+            body=_extract_text(raw.get("payload", {})),
+        )
+
+    def send_reply(self, original: EmailMessage, body: str) -> None:
+        msg = OutboundEmail()
