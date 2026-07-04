@@ -79,3 +79,10 @@ class GmailClient:
             .messages()
             .get(userId="me", id=message_id, format="full")
             .execute()
+        )
+        headers = _headers_by_name(raw.get("payload", {}).get("headers", []))
+        sender = email.utils.parseaddr(headers.get("from", ""))[1]
+        return EmailMessage(
+            id=raw["id"],
+            thread_id=raw["threadId"],
+            sender=sender,
