@@ -67,3 +67,9 @@ class GmailClient:
     def search_messages(self, query: str, max_results: int = 10) -> list[str]:
         response = (
             self.service.users()
+            .messages()
+            .list(userId="me", q=f"{query} -label:{self.processed_label_name}", maxResults=max_results)
+            .execute()
+        )
+        return [message["id"] for message in response.get("messages", [])]
+
