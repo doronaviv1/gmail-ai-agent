@@ -82,3 +82,5 @@ class SchedulingAgent:
             )
         return (
             "Thanks for reaching out. I could not find an available time for that day. "
+            "Please send another time that works for you."
+        )
