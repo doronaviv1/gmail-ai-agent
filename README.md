@@ -64,3 +64,10 @@ cp .env.example .env
 
 8. Set `OPENAI_API_KEY` if you want LLM parsing. Without it, the agent uses a deterministic parser that is useful for tests and simple emails.
 
+## Configuration
+
+`.env.example` documents every supported setting. The most important values are:
+
+```bash
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-4.1-mini
