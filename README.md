@@ -102,3 +102,10 @@ Inspect configuration:
 python -m scheduling_agent.cli config
 ```
 
+## Gmail Query
+
+By default the agent searches:
+
+```text
+is:unread newer_than:7d
+```
