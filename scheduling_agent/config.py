@@ -33,3 +33,9 @@ class Config:
     processed_label: str
     workday_start: time
     workday_end: time
+    default_meeting_duration_minutes: int
+    timezone: ZoneInfo
+    poll_interval_seconds: int
+    dry_run: bool
+    send_confirmation_email: bool
+
