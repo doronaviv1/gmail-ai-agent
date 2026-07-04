@@ -4,6 +4,7 @@ A Python agent that monitors Gmail for meeting requests, uses an LLM to turn ema
 
 ![Agent dashboard screenshot](screenshots/demo1.png)
 ![Scheduling flow screenshot](screenshots/demo2.png)
+![Slot is not available](screenshots/demo3.png)
 
 ## What It Does
 
