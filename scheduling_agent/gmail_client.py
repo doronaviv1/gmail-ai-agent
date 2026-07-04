@@ -48,3 +48,9 @@ class GmailClient:
         for label in labels:
             if label.get("name") == self.processed_label_name:
                 return label["id"]
+
+        created = (
+            self.service.users()
+            .labels()
+            .create(
+                userId="me",
