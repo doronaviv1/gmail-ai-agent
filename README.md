@@ -83,3 +83,10 @@ DRY_RUN=true
 Keep `DRY_RUN=true` until you have verified the agent behavior. In dry-run mode the agent logs intended event creation and replies without mutating Gmail or Calendar.
 
 ## Running
+
+Authenticate and run one polling pass:
+
+```bash
+python -m scheduling_agent.cli run-once
+```
+
