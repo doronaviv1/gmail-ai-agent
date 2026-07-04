@@ -128,3 +128,9 @@ The agent uses several safeguards:
 
 ## Tests
 
+```bash
+pytest
+```
+
+The test suite uses fake Gmail and Calendar clients, so it does not require Google credentials.
+
