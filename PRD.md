@@ -30,3 +30,9 @@ Automate first-pass meeting scheduling from Gmail by parsing natural language re
 - Multi-user admin console.
 - Full bidirectional negotiation across many participants.
 - Native push notification setup. Polling is sufficient for the first version.
+- PDF exports.
+
+## Functional Acceptance Criteria
+
+- The agent can run a single pass from the CLI.
+- The agent can run continuously with a configurable polling interval.
