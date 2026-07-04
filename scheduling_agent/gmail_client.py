@@ -23,3 +23,9 @@ def _headers_by_name(headers: list[dict[str, str]]) -> dict[str, str]:
 def _extract_text(payload: dict[str, Any]) -> str:
     mime_type = payload.get("mimeType")
     body = payload.get("body", {})
+    if mime_type == "text/plain":
+        return _decode_body(body.get("data"))
+
+    parts = payload.get("parts", [])
+    for part in parts:
+        if part.get("mimeType") == "text/plain":
