@@ -30,3 +30,9 @@ Gmail polling
 5. Parser extracts meeting intent.
 6. Scheduler checks Calendar.
 7. Agent creates an event or sends a conflict response.
+8. Gmail message is labeled as processed.
+
+## Development Plan
+
+1. Scaffold secure repository structure.
+2. Implement typed domain models.
