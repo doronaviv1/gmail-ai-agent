@@ -46,3 +46,9 @@ class Config:
         return cls(
             openai_api_key=os.getenv("OPENAI_API_KEY") or None,
             openai_model=os.getenv("OPENAI_MODEL", "gpt-4.1-mini"),
+            google_credentials_file=os.getenv("GOOGLE_CREDENTIALS_FILE", "credentials.json"),
+            google_token_file=os.getenv("GOOGLE_TOKEN_FILE", "token.json"),
+            google_calendar_id=os.getenv("GOOGLE_CALENDAR_ID", "primary"),
+            gmail_query=os.getenv("GMAIL_QUERY", "is:unread newer_than:7d"),
+            processed_label=os.getenv("PROCESSED_LABEL", "AI_SCHEDULER_PROCESSED"),
+            workday_start=_parse_time(os.getenv("WORKDAY_START", "09:00"), "WORKDAY_START"),
