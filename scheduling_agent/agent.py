@@ -7,3 +7,9 @@ from dataclasses import dataclass
 from .config import Config
 from .gmail_client import GmailClient
 from .llm_parser import LLMMeetingParser
+from .models import EmailMessage, SchedulingAction, SchedulingDecision
+from .scheduler import Scheduler
+
+logger = logging.getLogger(__name__)
+
+
