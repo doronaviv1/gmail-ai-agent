@@ -14,3 +14,10 @@ def _parse_bool(value: str | None, default: bool) -> bool:
     return value.strip().lower() in {"1", "true", "yes", "y", "on"}
 
 
+def _parse_time(value: str, name: str) -> time:
+    try:
+        hour, minute = value.split(":", 1)
+        return time(hour=int(hour), minute=int(minute))
+    except ValueError as exc:
+        raise ValueError(f"{name} must use HH:MM format") from exc
+
