@@ -115,3 +115,9 @@ You can override this with `GMAIL_QUERY` in `.env`. For production, start with a
 ```text
 is:unread newer_than:2d ("meeting" OR "schedule" OR "call")
 ```
+
+## Safety Model
+
+The agent uses several safeguards:
+
+- It ignores emails that do not parse as meeting requests.
