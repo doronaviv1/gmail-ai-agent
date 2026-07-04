@@ -52,3 +52,9 @@ The agent intentionally keeps Google credentials and user tokens outside Git. Us
 
 ```bash
 python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+7. Copy the environment template:
+
