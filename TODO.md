@@ -17,3 +17,5 @@
 - Web dashboard for review and approvals.
 - Human-in-the-loop mode for low-confidence parsing.
 - Organization policy controls for maximum meeting length and allowed domains.
+- Per-sender rules.
+- Support for Microsoft 365.
