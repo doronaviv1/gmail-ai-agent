@@ -90,3 +90,9 @@ Authenticate and run one polling pass:
 python -m scheduling_agent.cli run-once
 ```
 
+Run continuously:
+
+```bash
+python -m scheduling_agent.cli watch
+```
+
