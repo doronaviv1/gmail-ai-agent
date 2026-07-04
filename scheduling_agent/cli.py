@@ -53,3 +53,6 @@ def main() -> None:
     else:
         agent.watch()
 
+
+if __name__ == "__main__":
+    main()
