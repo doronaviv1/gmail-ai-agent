@@ -36,3 +36,9 @@ Gmail polling
 
 1. Scaffold secure repository structure.
 2. Implement typed domain models.
+3. Implement config loading.
+4. Implement Google OAuth helper.
+5. Implement Gmail adapter.
+6. Implement Calendar adapter.
+7. Implement LLM parser and deterministic fallback.
+8. Implement scheduler.
