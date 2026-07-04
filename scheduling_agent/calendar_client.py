@@ -37,3 +37,9 @@ class CalendarClient:
         return len(self.busy_slots(slot.start, slot.end)) == 0
 
     def create_event(
+        self,
+        title: str,
+        slot: TimeSlot,
+        attendees: list[str],
+        description: str,
+    ) -> dict[str, Any]:
