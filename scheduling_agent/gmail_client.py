@@ -10,3 +10,9 @@ from .models import EmailMessage
 
 
 def _decode_body(data: str | None) -> str:
+    if not data:
+        return ""
+    padded = data + "=" * (-len(data) % 4)
+    return base64.urlsafe_b64decode(padded.encode("utf-8")).decode("utf-8", errors="replace")
+
+
