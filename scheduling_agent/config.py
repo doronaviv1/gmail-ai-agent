@@ -58,3 +58,4 @@ class Config:
             poll_interval_seconds=int(os.getenv("POLL_INTERVAL_SECONDS", "60")),
             dry_run=_parse_bool(os.getenv("DRY_RUN"), True),
             send_confirmation_email=_parse_bool(os.getenv("SEND_CONFIRMATION_EMAIL"), True),
+        )
