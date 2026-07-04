@@ -34,3 +34,9 @@ venv/
 env/
 
 # IDE and OS
+.DS_Store
+.idea/
+.vscode/
+
+# Generated PDFs are intentionally forbidden for this project
+*.pdf
