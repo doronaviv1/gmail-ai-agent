@@ -57,3 +57,9 @@ class SchedulingAgent:
                 if self.config.send_confirmation_email:
                     self.gmail.send_reply(email, self._confirmation_body(decision))
 
+        if decision.action == SchedulingAction.CONFLICT:
+            if self.config.dry_run:
+                logger.info("Dry run: would send conflict reply to %s", email.sender)
+            else:
+                self.gmail.send_reply(email, self._conflict_body(decision))
+
