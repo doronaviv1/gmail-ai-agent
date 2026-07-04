@@ -22,3 +22,9 @@ def build_agent(config: Config) -> SchedulingAgent:
     scheduler = Scheduler(
         calendar=calendar,
         timezone=config.timezone,
+        workday_start=config.workday_start,
+        workday_end=config.workday_end,
+        default_duration_minutes=config.default_meeting_duration_minutes,
+    )
+    return SchedulingAgent(config=config, gmail=gmail, parser=parser, scheduler=scheduler)
+
