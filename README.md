@@ -134,3 +134,9 @@ pytest
 
 The test suite uses fake Gmail and Calendar clients, so it does not require Google credentials.
 
+## Important Security Notes
+
+Never commit:
+
+- `.env`
+- `credentials.json`
