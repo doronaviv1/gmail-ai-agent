@@ -11,3 +11,9 @@
 - Add Dockerfile and systemd unit examples.
 - Add optional SQLite audit log.
 - Add integration tests behind explicit credentials.
+
+## Future Enhancements
+
+- Web dashboard for review and approvals.
+- Human-in-the-loop mode for low-confidence parsing.
+- Organization policy controls for maximum meeting length and allowed domains.
