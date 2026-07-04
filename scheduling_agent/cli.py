@@ -47,3 +47,9 @@ def main() -> None:
         return
 
     agent = build_agent(config)
+    if args.command == "run-once":
+        decisions = agent.run_once(max_results=args.max_results)
+        print(f"Processed {len(decisions)} candidate messages.")
+    else:
+        agent.watch()
+
