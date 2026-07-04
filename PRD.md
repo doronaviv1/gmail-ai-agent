@@ -43,3 +43,9 @@ Automate first-pass meeting scheduling from Gmail by parsing natural language re
 - Dry-run mode avoids external mutations.
 
 ## Security Acceptance Criteria
+
+- `.gitignore` excludes `.env`, `credentials.json`, `token.json`, Python caches, local databases, logs, and virtual environments.
+- `.env.example` contains placeholders only.
+- Tests do not require real credentials.
+- No repository file contains OAuth tokens or client secrets.
+
