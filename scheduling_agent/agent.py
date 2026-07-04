@@ -51,3 +51,9 @@ class SchedulingAgent:
                 self.scheduler.calendar.create_event(
                     title=request.title,
                     slot=decision.slot,
+                    attendees=request.attendees or [email.sender],
+                    description=f"Scheduled from Gmail message {email.id}.",
+                )
+                if self.config.send_confirmation_email:
+                    self.gmail.send_reply(email, self._confirmation_body(decision))
+
