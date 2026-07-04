@@ -24,3 +24,9 @@ class CalendarClient:
             )
             .execute()
         )
+        busy = response.get("calendars", {}).get(self.calendar_id, {}).get("busy", [])
+        return [
+            TimeSlot(
+                start=datetime.fromisoformat(item["start"].replace("Z", "+00:00")),
+                end=datetime.fromisoformat(item["end"].replace("Z", "+00:00")),
+            )
