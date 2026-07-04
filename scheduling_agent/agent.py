@@ -63,3 +63,10 @@ class SchedulingAgent:
             else:
                 self.gmail.send_reply(email, self._conflict_body(decision))
 
+        return decision
+
+    def _confirmation_body(self, decision: SchedulingDecision) -> str:
+        assert decision.slot is not None
+        return (
+            "Thanks, I scheduled the meeting.\n\n"
+            f"Start: {decision.slot.start.isoformat()}\n"
