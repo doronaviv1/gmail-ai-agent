@@ -33,3 +33,9 @@ The agent intentionally keeps Google credentials and user tokens outside Git. Us
 ├── TODO.md
 ├── README.md
 ├── requirements.txt
+├── .env.example
+├── .gitignore
+├── scheduling_agent/
+├── tests/
+├── tools/
+└── screenshots/
