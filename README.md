@@ -140,3 +140,9 @@ Never commit:
 
 - `.env`
 - `credentials.json`
+- `token.json`
+- OAuth refresh tokens
+- exported email data
+- local logs with private email content
+
+The `.gitignore` blocks those files by default.
