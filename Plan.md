@@ -23,3 +23,10 @@ Gmail polling
 
 ## Data Flow
 
+1. CLI loads configuration.
+2. OAuth services are created for Gmail and Calendar.
+3. Gmail is searched for candidate unread messages.
+4. Each message is converted into plain text.
+5. Parser extracts meeting intent.
+6. Scheduler checks Calendar.
+7. Agent creates an event or sends a conflict response.
