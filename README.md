@@ -77,3 +77,9 @@ WORKDAY_START=09:00
 WORKDAY_END=17:00
 DEFAULT_MEETING_DURATION_MINUTES=30
 POLL_INTERVAL_SECONDS=60
+DRY_RUN=true
+```
+
+Keep `DRY_RUN=true` until you have verified the agent behavior. In dry-run mode the agent logs intended event creation and replies without mutating Gmail or Calendar.
+
+## Running
