@@ -43,3 +43,9 @@ class CalendarClient:
         attendees: list[str],
         description: str,
     ) -> dict[str, Any]:
+        event = {
+            "summary": title,
+            "description": description,
+            "start": {"dateTime": slot.start.isoformat()},
+            "end": {"dateTime": slot.end.isoformat()},
+            "attendees": [{"email": attendee} for attendee in attendees],
