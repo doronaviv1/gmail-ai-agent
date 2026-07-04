@@ -55,3 +55,6 @@ Run as a local process, cron job, systemd service, container, or server task. Fo
 - Risk: Incorrect parsing books wrong meetings.
   Mitigation: dry-run mode, logs, deterministic validation, and explicit confidence score.
 - Risk: Duplicate processing creates duplicate events.
+  Mitigation: processed Gmail label and idempotent event metadata.
+- Risk: Secret leakage.
+  Mitigation: `.gitignore`, placeholder-only examples, and explicit README warnings.
