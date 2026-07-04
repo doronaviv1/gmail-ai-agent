@@ -54,3 +54,10 @@ class GmailClient:
             .labels()
             .create(
                 userId="me",
+                body={
+                    "name": self.processed_label_name,
+                    "labelListVisibility": "labelShow",
+                    "messageListVisibility": "show",
+                },
+            )
+            .execute()
