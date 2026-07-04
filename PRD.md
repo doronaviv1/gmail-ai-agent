@@ -11,3 +11,9 @@ Automate first-pass meeting scheduling from Gmail by parsing natural language re
 ## Users
 
 - Primary user: an individual Google Workspace user who receives meeting requests by email.
+- Secondary user: administrators or developers configuring the agent.
+
+## Core Requirements
+
+1. Monitor Gmail for incoming candidate meeting requests.
+2. Parse free-text email content into structured scheduling intent.
