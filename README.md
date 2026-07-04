@@ -58,3 +58,9 @@ pip install -r requirements.txt
 
 7. Copy the environment template:
 
+```bash
+cp .env.example .env
+```
+
+8. Set `OPENAI_API_KEY` if you want LLM parsing. Without it, the agent uses a deterministic parser that is useful for tests and simple emails.
+
