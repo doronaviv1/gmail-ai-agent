@@ -39,3 +39,10 @@ class Config:
     dry_run: bool
     send_confirmation_email: bool
 
+    @classmethod
+    def from_env(cls) -> "Config":
+        load_dotenv()
+        timezone_name = os.getenv("TIMEZONE", "UTC")
+        return cls(
+            openai_api_key=os.getenv("OPENAI_API_KEY") or None,
+            openai_model=os.getenv("OPENAI_MODEL", "gpt-4.1-mini"),
