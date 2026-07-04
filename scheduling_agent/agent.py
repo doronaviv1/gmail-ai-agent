@@ -32,3 +32,9 @@ class SchedulingAgent:
                     self.gmail.mark_processed(message_id, label_id)
             except Exception:
                 logger.exception("Failed to process Gmail message %s", message_id)
+        return decisions
+
+    def watch(self) -> None:
+        while True:
+            self.run_once()
+            time.sleep(self.config.poll_interval_seconds)
