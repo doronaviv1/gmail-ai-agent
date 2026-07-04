@@ -49,3 +49,9 @@ Automate first-pass meeting scheduling from Gmail by parsing natural language re
 - Tests do not require real credentials.
 - No repository file contains OAuth tokens or client secrets.
 
+## Success Metrics
+
+- At least 90% of straightforward meeting-request emails are correctly classified in manual testing.
+- Zero duplicate calendar events for already processed messages.
+- Zero committed secrets.
+- Setup can be completed from README instructions.
