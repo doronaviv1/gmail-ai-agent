@@ -22,3 +22,9 @@ class GoogleAuthenticator:
 
     def credentials(self) -> Credentials:
         creds = None
+        if self.token_file.exists():
+            creds = Credentials.from_authorized_user_file(str(self.token_file), SCOPES)
+
+        if creds and creds.valid:
+            return creds
+
