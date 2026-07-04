@@ -38,3 +38,10 @@ class SchedulingAgent:
         while True:
             self.run_once()
             time.sleep(self.config.poll_interval_seconds)
+
+    def _handle_email(self, email: EmailMessage) -> SchedulingDecision:
+        request = self.parser.parse(email)
+        decision = self.scheduler.decide(request)
+        logger.info("Decision for %s: %s - %s", email.id, decision.action.value, decision.message)
+
+        if decision.action == SchedulingAction.BOOK and decision.slot:
