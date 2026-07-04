@@ -20,3 +20,10 @@ The codebase is split into small modules:
 - `scheduling_agent.scheduler`: Availability decisions and slot selection.
 - `scheduling_agent.skill`: Reusable AI skill wrapper for parse-and-schedule decisions.
 - `scheduling_agent.agent`: Main orchestration loop.
+- `scheduling_agent.cli`: Command-line entry point.
+
+The agent intentionally keeps Google credentials and user tokens outside Git. Use `.env` for local configuration and keep `credentials.json` and `token.json` on your workstation only.
+
+## Repository Layout
+
+```text
