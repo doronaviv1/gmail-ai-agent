@@ -39,3 +39,9 @@ The agent intentionally keeps Google credentials and user tokens outside Git. Us
 ├── tests/
 ├── tools/
 └── screenshots/
+```
+
+## Setup
+
+1. Create a Google Cloud project.
+2. Enable the Gmail API and Google Calendar API.
