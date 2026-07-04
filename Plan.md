@@ -49,3 +49,9 @@ Gmail polling
 ## Deployment Plan
 
 Run as a local process, cron job, systemd service, container, or server task. For production, prefer a service account only if the Workspace domain supports domain-wide delegation; otherwise use OAuth Desktop credentials for a single user.
+
+## Risk Management
+
+- Risk: Incorrect parsing books wrong meetings.
+  Mitigation: dry-run mode, logs, deterministic validation, and explicit confidence score.
+- Risk: Duplicate processing creates duplicate events.
