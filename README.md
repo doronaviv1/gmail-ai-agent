@@ -45,3 +45,10 @@ The agent intentionally keeps Google credentials and user tokens outside Git. Us
 
 1. Create a Google Cloud project.
 2. Enable the Gmail API and Google Calendar API.
+3. Configure an OAuth consent screen.
+4. Create an OAuth Desktop Client and download it as `credentials.json`.
+5. Place `credentials.json` in the repository root, but do not commit it.
+6. Create a virtual environment and install dependencies:
+
+```bash
+python3 -m venv .venv
