@@ -61,3 +61,9 @@ class GmailClient:
                 },
             )
             .execute()
+        )
+        return created["id"]
+
+    def search_messages(self, query: str, max_results: int = 10) -> list[str]:
+        response = (
+            self.service.users()
