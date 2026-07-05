@@ -59,3 +59,8 @@ class Scheduler:
             if self.calendar.is_available(candidate):
                 return candidate
             cursor += step
+        return None
+
+    def _combine(self, requested_date: date, hhmm: str) -> datetime:
+        hour, minute = hhmm.split(":", 1)
+        return datetime.combine(requested_date, time(int(hour), int(minute)), tzinfo=self.timezone)
