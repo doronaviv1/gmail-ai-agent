@@ -84,3 +84,9 @@ class LLMMeetingParser:
             reason="Fallback parser detected scheduling language.",
         )
 
+    def _extract_day(self, text: str, now: datetime) -> str | None:
+        if "tomorrow" in text:
+            return (now + timedelta(days=1)).date().isoformat()
+        if "today" in text:
+            return now.date().isoformat()
+        weekday_names = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
