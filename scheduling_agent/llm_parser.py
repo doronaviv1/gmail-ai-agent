@@ -34,3 +34,9 @@ class LLMMeetingParser:
     def parse(self, email: EmailMessage, now: datetime | None = None) -> MeetingRequest:
         now = now or datetime.now(self.timezone)
         if self.client is None:
+            return self._fallback_parse(email, now)
+
+        prompt = (
+            "Extract scheduling intent from this email. Return only JSON matching these keys: "
+            "is_meeting_request, title, requested_day, start_time, end_time, duration_minutes, "
+            "timezone, attendees, confidence, reason. Use null when unknown. "
