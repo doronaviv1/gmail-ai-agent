@@ -52,3 +52,10 @@ class Scheduler:
         day_start = datetime.combine(requested_date, self.workday_start, tzinfo=self.timezone)
         day_end = datetime.combine(requested_date, self.workday_end, tzinfo=self.timezone)
         step = timedelta(minutes=15)
+        duration = timedelta(minutes=duration_minutes)
+        cursor = day_start
+        while cursor + duration <= day_end:
+            candidate = TimeSlot(start=cursor, end=cursor + duration)
+            if self.calendar.is_available(candidate):
+                return candidate
+            cursor += step
