@@ -65,3 +65,9 @@ class LLMMeetingParser:
         if not any(word in text for word in meeting_words):
             return MeetingRequest(False, "Meeting", confidence=0.1, reason="No meeting intent keywords found.")
 
+        requested_day = self._extract_day(text, now)
+        start_time, end_time = self._extract_times(text)
+        duration = self._extract_duration(text)
+        title = email.subject.strip() or "Meeting"
+        attendees = [email.sender] if email.sender else []
+        confidence = 0.7 if requested_day else 0.45
