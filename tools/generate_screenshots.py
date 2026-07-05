@@ -24,3 +24,9 @@ def write_png(path: Path, width: int, height: int, accent: tuple[int, int, int])
                 base = (210, 215, 222)
             if 70 < x < width - 220 and 210 < y < 235:
                 base = (121, 184, 255)
+            row.extend(base)
+        rows.append(bytes(row))
+
+    png = b"\x89PNG\r\n\x1a\n"
+    png += _chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0))
+    png += _chunk(b"IDAT", zlib.compress(b"".join(rows), level=9))
