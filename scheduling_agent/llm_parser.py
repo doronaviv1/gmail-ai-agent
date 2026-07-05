@@ -116,3 +116,9 @@ class LLMMeetingParser:
         if meridiem == "am" and hour == 12:
             hour = 0
         return f"{hour:02d}:{minute:02d}", None
+
+    def _extract_duration(self, text: str) -> int | None:
+        match = re.search(r"\b(\d{1,3})\s*(minute|minutes|min)\b", text)
+        if match:
+            return int(match.group(1))
+        match = re.search(r"\b(\d{1,2})\s*(hour|hours|hr|hrs)\b", text)
