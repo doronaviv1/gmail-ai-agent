@@ -18,3 +18,9 @@ class FakeGmail:
 
     def search_messages(self, query, max_results=10):
         return ["m1"]
+
+    def get_message(self, message_id):
+        return self.email
+
+    def mark_processed(self, message_id, label_id):
+        self.marked.append((message_id, label_id))
