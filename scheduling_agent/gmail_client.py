@@ -92,3 +92,9 @@ class GmailClient:
 
     def send_reply(self, original: EmailMessage, body: str) -> None:
         msg = OutboundEmail()
+        msg["To"] = original.sender
+        msg["Subject"] = f"Re: {original.subject}" if not original.subject.lower().startswith("re:") else original.subject
+        msg.set_content(body)
+        encoded = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
+        self.service.users().messages().send(
+            userId="me",
