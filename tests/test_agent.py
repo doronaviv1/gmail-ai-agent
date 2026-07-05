@@ -43,3 +43,9 @@ class FakeCalendar:
 
     def create_event(self, title, slot, attendees, description):
         self.created.append((title, slot, attendees, description))
+        return {"id": "event-1"}
+
+
+def make_config(dry_run: bool):
+    return Config(
+        openai_api_key=None,
