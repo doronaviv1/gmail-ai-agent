@@ -49,3 +49,10 @@ class FakeCalendar:
 def make_config(dry_run: bool):
     return Config(
         openai_api_key=None,
+        openai_model="unused",
+        google_credentials_file="credentials.json",
+        google_token_file="token.json",
+        google_calendar_id="primary",
+        gmail_query="is:unread",
+        processed_label="AI_SCHEDULER_PROCESSED",
+        workday_start=time(9),
