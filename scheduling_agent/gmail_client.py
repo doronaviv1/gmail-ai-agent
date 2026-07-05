@@ -98,3 +98,10 @@ class GmailClient:
         encoded = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
         self.service.users().messages().send(
             userId="me",
+            body={"raw": encoded, "threadId": original.thread_id},
+        ).execute()
+
+    def mark_processed(self, message_id: str, label_id: str) -> None:
+        self.service.users().messages().modify(
+            userId="me",
+            id=message_id,
