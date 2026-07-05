@@ -105,3 +105,5 @@ class GmailClient:
         self.service.users().messages().modify(
             userId="me",
             id=message_id,
+            body={"addLabelIds": [label_id], "removeLabelIds": ["UNREAD"]},
+        ).execute()
