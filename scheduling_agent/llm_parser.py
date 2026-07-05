@@ -21,3 +21,9 @@ class ParsedMeeting(BaseModel):
     duration_minutes: int | None = Field(default=None)
     timezone: str | None = Field(default=None)
     attendees: list[str] = Field(default_factory=list)
+    confidence: float = Field(default=0.0, ge=0.0, le=1.0)
+    reason: str = Field(default="")
+
+
+class LLMMeetingParser:
+    def __init__(self, api_key: str | None, model: str, timezone: ZoneInfo) -> None:
