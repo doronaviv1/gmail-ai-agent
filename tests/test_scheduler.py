@@ -39,3 +39,9 @@ def test_scheduler_finds_first_free_slot_when_time_missing():
     scheduler = Scheduler(FakeCalendar(busy), ZoneInfo("UTC"), time(9), time(17), 30)
     request = MeetingRequest(True, "Demo", requested_day="2026-07-06")
 
+    decision = scheduler.decide(request)
+
+    assert decision.action == SchedulingAction.BOOK
+    assert decision.slot is not None
+    assert decision.slot.start.hour == 9
+    assert decision.slot.start.minute == 30
