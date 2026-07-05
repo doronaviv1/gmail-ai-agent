@@ -103,3 +103,9 @@ class LLMMeetingParser:
             return parsed.date().isoformat()
         except (ValueError, OverflowError):
             return None
+
+    def _extract_times(self, text: str) -> tuple[str | None, str | None]:
+        match = re.search(r"\b([01]?\d|2[0-3])(?::([0-5]\d))?\s*(am|pm)?\b", text)
+        if not match:
+            return None, None
+        hour = int(match.group(1))
