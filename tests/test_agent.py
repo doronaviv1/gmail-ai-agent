@@ -30,3 +30,10 @@ class FakeGmail:
 
 
 class FakeParser:
+    def parse(self, email):
+        return MeetingRequest(True, "Meeting", requested_day="2026-07-06", attendees=[email.sender])
+
+
+class FakeCalendar:
+    def __init__(self):
+        self.created = []
