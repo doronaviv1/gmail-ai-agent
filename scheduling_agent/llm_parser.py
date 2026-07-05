@@ -90,3 +90,10 @@ class LLMMeetingParser:
         if "today" in text:
             return now.date().isoformat()
         weekday_names = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+        for index, name in enumerate(weekday_names):
+            if name in text:
+                days_ahead = (index - now.weekday()) % 7
+                days_ahead = 7 if days_ahead == 0 else days_ahead
+                return (now + timedelta(days=days_ahead)).date().isoformat()
+        match = re.search(r"\b\d{4}-\d{2}-\d{2}\b", text)
+        if match:
