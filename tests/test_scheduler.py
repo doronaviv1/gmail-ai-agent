@@ -20,3 +20,9 @@ def test_scheduler_books_explicit_available_slot():
     decision = scheduler.decide(request)
 
     assert decision.action == SchedulingAction.BOOK
+    assert decision.slot is not None
+    assert decision.slot.start.hour == 10
+
+
+def test_scheduler_reports_conflict_for_busy_explicit_slot():
+    busy = [TimeSlot(datetime(2026, 7, 6, 10, tzinfo=ZoneInfo("UTC")), datetime(2026, 7, 6, 11, tzinfo=ZoneInfo("UTC")))]
