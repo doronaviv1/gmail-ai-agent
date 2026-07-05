@@ -62,3 +62,9 @@ def make_config(dry_run: bool):
         poll_interval_seconds=60,
         dry_run=dry_run,
         send_confirmation_email=True,
+    )
+
+
+def test_agent_dry_run_does_not_mutate_external_services():
+    gmail = FakeGmail()
+    calendar = FakeCalendar()
