@@ -87,3 +87,5 @@ def test_agent_non_dry_run_creates_event_and_marks_processed():
     decisions = agent.run_once()
 
     assert decisions[0].action == SchedulingAction.BOOK
+    assert len(calendar.created) == 1
+    assert gmail.marked == [("m1", "label-1")]
