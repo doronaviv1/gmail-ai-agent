@@ -75,3 +75,9 @@ def test_agent_dry_run_does_not_mutate_external_services():
 
     assert decisions[0].action == SchedulingAction.BOOK
     assert calendar.created == []
+    assert gmail.marked == []
+
+
+def test_agent_non_dry_run_creates_event_and_marks_processed():
+    gmail = FakeGmail()
+    calendar = FakeCalendar()
