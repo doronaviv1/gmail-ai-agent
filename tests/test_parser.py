@@ -28,3 +28,6 @@ def test_fallback_parser_skips_non_meeting_email():
     parser = LLMMeetingParser(api_key=None, model="unused", timezone=ZoneInfo("UTC"))
     email = EmailMessage(id="1", thread_id="t1", sender="a@example.com", subject="FYI", body="Here is the report.")
 
+    result = parser.parse(email, now=datetime(2026, 7, 4, 12, tzinfo=ZoneInfo("UTC")))
+
+    assert result.is_meeting_request is False
