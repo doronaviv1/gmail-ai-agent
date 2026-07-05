@@ -46,3 +46,10 @@ class LLMMeetingParser:
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[
+                {"role": "system", "content": "You are a precise scheduling-intent extraction engine."},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0,
+            response_format={"type": "json_object"},
+        )
+        content = response.choices[0].message.content or "{}"
