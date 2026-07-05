@@ -27,3 +27,10 @@ class ParsedMeeting(BaseModel):
 
 class LLMMeetingParser:
     def __init__(self, api_key: str | None, model: str, timezone: ZoneInfo) -> None:
+        self.model = model
+        self.timezone = timezone
+        self.client = OpenAI(api_key=api_key) if api_key else None
+
+    def parse(self, email: EmailMessage, now: datetime | None = None) -> MeetingRequest:
+        now = now or datetime.now(self.timezone)
+        if self.client is None:
