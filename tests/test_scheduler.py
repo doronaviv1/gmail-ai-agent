@@ -14,3 +14,9 @@ class FakeCalendar:
 
 
 def test_scheduler_books_explicit_available_slot():
+    scheduler = Scheduler(FakeCalendar(), ZoneInfo("UTC"), time(9), time(17), 30)
+    request = MeetingRequest(True, "Demo", requested_day="2026-07-06", start_time="10:00", duration_minutes=30)
+
+    decision = scheduler.decide(request)
+
+    assert decision.action == SchedulingAction.BOOK
