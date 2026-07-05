@@ -78,3 +78,9 @@ class LLMMeetingParser:
             start_time=start_time,
             end_time=end_time,
             duration_minutes=duration,
+            timezone=self.timezone.key,
+            attendees=attendees,
+            confidence=confidence,
+            reason="Fallback parser detected scheduling language.",
+        )
+
