@@ -97,3 +97,9 @@ class LLMMeetingParser:
                 return (now + timedelta(days=days_ahead)).date().isoformat()
         match = re.search(r"\b\d{4}-\d{2}-\d{2}\b", text)
         if match:
+            return match.group(0)
+        try:
+            parsed = date_parser.parse(text, fuzzy=True, default=now)
+            return parsed.date().isoformat()
+        except (ValueError, OverflowError):
+            return None
