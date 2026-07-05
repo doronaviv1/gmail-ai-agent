@@ -20,3 +20,10 @@ class EmailMessage:
     subject: str
     body: str
 
+
+@dataclass(frozen=True)
+class MeetingRequest:
+    is_meeting_request: bool
+    title: str
+    requested_day: str | None = None
+    start_time: str | None = None
