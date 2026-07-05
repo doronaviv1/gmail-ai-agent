@@ -27,3 +27,9 @@ class MeetingRequest:
     title: str
     requested_day: str | None = None
     start_time: str | None = None
+    end_time: str | None = None
+    duration_minutes: int | None = None
+    timezone: str | None = None
+    attendees: list[str] = field(default_factory=list)
+    confidence: float = 0.0
+    reason: str = ""
