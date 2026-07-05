@@ -21,3 +21,9 @@ class Scheduler:
             return SchedulingDecision(SchedulingAction.SKIP, request, message="Email is not a meeting request.")
 
         if not request.requested_day:
+            return SchedulingDecision(SchedulingAction.SKIP, request, message="No requested day was found.")
+
+        duration = request.duration_minutes or self.default_duration_minutes
+        requested_date = date.fromisoformat(request.requested_day)
+
+        if request.start_time:
