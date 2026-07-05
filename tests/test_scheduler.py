@@ -26,3 +26,10 @@ def test_scheduler_books_explicit_available_slot():
 
 def test_scheduler_reports_conflict_for_busy_explicit_slot():
     busy = [TimeSlot(datetime(2026, 7, 6, 10, tzinfo=ZoneInfo("UTC")), datetime(2026, 7, 6, 11, tzinfo=ZoneInfo("UTC")))]
+    scheduler = Scheduler(FakeCalendar(busy), ZoneInfo("UTC"), time(9), time(17), 30)
+    request = MeetingRequest(True, "Demo", requested_day="2026-07-06", start_time="10:00", duration_minutes=30)
+
+    decision = scheduler.decide(request)
+
+    assert decision.action == SchedulingAction.CONFLICT
+
