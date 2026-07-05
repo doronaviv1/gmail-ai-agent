@@ -11,3 +11,10 @@ class FakeGmail:
     def __init__(self):
         self.marked = []
         self.replies = []
+        self.email = EmailMessage("m1", "t1", "alex@example.com", "Meeting", "Can we meet tomorrow?")
+
+    def ensure_processed_label(self):
+        return "label-1"
+
+    def search_messages(self, query, max_results=10):
+        return ["m1"]
