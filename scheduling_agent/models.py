@@ -33,3 +33,9 @@ class MeetingRequest:
     attendees: list[str] = field(default_factory=list)
     confidence: float = 0.0
     reason: str = ""
+
+
+@dataclass(frozen=True)
+class TimeSlot:
+    start: datetime
+    end: datetime
