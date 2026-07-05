@@ -14,3 +14,9 @@ class SchedulingAction(str, Enum):
 
 @dataclass(frozen=True)
 class EmailMessage:
+    id: str
+    thread_id: str
+    sender: str
+    subject: str
+    body: str
+
