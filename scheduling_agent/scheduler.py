@@ -40,3 +40,9 @@ class Scheduler:
     def _slot_from_requested_time(
         self,
         requested_date: date,
+        start_time: str,
+        end_time: str | None,
+        duration_minutes: int,
+    ) -> TimeSlot:
+        start = self._combine(requested_date, start_time)
+        end = self._combine(requested_date, end_time) if end_time else start + timedelta(minutes=duration_minutes)
