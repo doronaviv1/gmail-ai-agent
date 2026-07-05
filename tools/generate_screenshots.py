@@ -36,3 +36,10 @@ def write_png(path: Path, width: int, height: int, accent: tuple[int, int, int])
 
 def main() -> None:
     out = Path("screenshots")
+    out.mkdir(exist_ok=True)
+    write_png(out / "demo1.png", 960, 540, (45, 164, 78))
+    write_png(out / "demo2.png", 960, 540, (191, 135, 0))
+
+
+if __name__ == "__main__":
+    main()
