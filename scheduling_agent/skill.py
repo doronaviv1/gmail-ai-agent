@@ -12,3 +12,8 @@ class SchedulingSkill:
     """Reusable AI skill that maps an email into a scheduling decision."""
 
     parser: LLMMeetingParser
+    scheduler: Scheduler
+
+    def run(self, email: EmailMessage) -> SchedulingDecision:
+        request = self.parser.parse(email)
+        return self.scheduler.decide(request)
