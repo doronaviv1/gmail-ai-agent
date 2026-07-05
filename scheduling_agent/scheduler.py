@@ -46,3 +46,9 @@ class Scheduler:
     ) -> TimeSlot:
         start = self._combine(requested_date, start_time)
         end = self._combine(requested_date, end_time) if end_time else start + timedelta(minutes=duration_minutes)
+        return TimeSlot(start=start, end=end)
+
+    def _find_available_slot(self, requested_date: date, duration_minutes: int) -> TimeSlot | None:
+        day_start = datetime.combine(requested_date, self.workday_start, tzinfo=self.timezone)
+        day_end = datetime.combine(requested_date, self.workday_end, tzinfo=self.timezone)
+        step = timedelta(minutes=15)
