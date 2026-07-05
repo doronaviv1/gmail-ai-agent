@@ -8,3 +8,9 @@ from typing import Any
 
 class SchedulingAction(str, Enum):
     BOOK = "book"
+    CONFLICT = "conflict"
+    SKIP = "skip"
+
+
+@dataclass(frozen=True)
+class EmailMessage:
