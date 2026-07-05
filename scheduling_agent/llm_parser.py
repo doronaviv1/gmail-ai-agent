@@ -53,3 +53,9 @@ class LLMMeetingParser:
             response_format={"type": "json_object"},
         )
         content = response.choices[0].message.content or "{}"
+        try:
+            parsed = ParsedMeeting.model_validate(json.loads(content))
+        except (json.JSONDecodeError, ValidationError):
+            return self._fallback_parse(email, now)
+        return MeetingRequest(**parsed.model_dump())
+
