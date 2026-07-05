@@ -37,3 +37,9 @@ class FakeParser:
 class FakeCalendar:
     def __init__(self):
         self.created = []
+
+    def is_available(self, slot: TimeSlot):
+        return True
+
+    def create_event(self, title, slot, attendees, description):
+        self.created.append((title, slot, attendees, description))
