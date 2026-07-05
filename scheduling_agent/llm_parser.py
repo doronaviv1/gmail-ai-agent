@@ -40,3 +40,9 @@ class LLMMeetingParser:
             "Extract scheduling intent from this email. Return only JSON matching these keys: "
             "is_meeting_request, title, requested_day, start_time, end_time, duration_minutes, "
             "timezone, attendees, confidence, reason. Use null when unknown. "
+            f"Today is {now.date().isoformat()} in timezone {self.timezone.key}.\n\n"
+            f"Subject: {email.subject}\nFrom: {email.sender}\nBody:\n{email.body}"
+        )
+        response = self.client.chat.completions.create(
+            model=self.model,
+            messages=[
