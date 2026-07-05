@@ -122,3 +122,6 @@ class LLMMeetingParser:
         if match:
             return int(match.group(1))
         match = re.search(r"\b(\d{1,2})\s*(hour|hours|hr|hrs)\b", text)
+        if match:
+            return int(match.group(1)) * 60
+        return None
