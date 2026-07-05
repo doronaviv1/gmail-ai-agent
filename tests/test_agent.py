@@ -68,3 +68,10 @@ def make_config(dry_run: bool):
 def test_agent_dry_run_does_not_mutate_external_services():
     gmail = FakeGmail()
     calendar = FakeCalendar()
+    scheduler = Scheduler(calendar, ZoneInfo("UTC"), time(9), time(17), 30)
+    agent = SchedulingAgent(make_config(dry_run=True), gmail, FakeParser(), scheduler)
+
+    decisions = agent.run_once()
+
+    assert decisions[0].action == SchedulingAction.BOOK
+    assert calendar.created == []
