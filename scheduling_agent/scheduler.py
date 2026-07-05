@@ -33,3 +33,10 @@ class Scheduler:
             return SchedulingDecision(SchedulingAction.CONFLICT, request, slot=slot, message="Requested slot is unavailable.")
 
         slot = self._find_available_slot(requested_date, duration)
+        if slot:
+            return SchedulingDecision(SchedulingAction.BOOK, request, slot=slot, message="Found an available slot.")
+        return SchedulingDecision(SchedulingAction.CONFLICT, request, message="No available slot was found that day.")
+
+    def _slot_from_requested_time(
+        self,
+        requested_date: date,
