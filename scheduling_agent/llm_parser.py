@@ -59,3 +59,9 @@ class LLMMeetingParser:
             return self._fallback_parse(email, now)
         return MeetingRequest(**parsed.model_dump())
 
+    def _fallback_parse(self, email: EmailMessage, now: datetime) -> MeetingRequest:
+        text = f"{email.subject}\n{email.body}".lower()
+        meeting_words = ("meeting", "meet", "call", "sync", "schedule", "appointment", "chat")
+        if not any(word in text for word in meeting_words):
+            return MeetingRequest(False, "Meeting", confidence=0.1, reason="No meeting intent keywords found.")
+
