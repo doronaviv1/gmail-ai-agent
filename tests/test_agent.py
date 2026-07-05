@@ -24,3 +24,9 @@ class FakeGmail:
 
     def mark_processed(self, message_id, label_id):
         self.marked.append((message_id, label_id))
+
+    def send_reply(self, original, body):
+        self.replies.append((original, body))
+
+
+class FakeParser:
