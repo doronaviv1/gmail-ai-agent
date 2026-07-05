@@ -39,3 +39,9 @@ class MeetingRequest:
 class TimeSlot:
     start: datetime
     end: datetime
+
+
+@dataclass(frozen=True)
+class SchedulingDecision:
+    action: SchedulingAction
+    request: MeetingRequest
