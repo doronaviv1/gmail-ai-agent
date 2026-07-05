@@ -27,3 +27,9 @@ class Scheduler:
         requested_date = date.fromisoformat(request.requested_day)
 
         if request.start_time:
+            slot = self._slot_from_requested_time(requested_date, request.start_time, request.end_time, duration)
+            if self.calendar.is_available(slot):
+                return SchedulingDecision(SchedulingAction.BOOK, request, slot=slot, message="Requested slot is available.")
+            return SchedulingDecision(SchedulingAction.CONFLICT, request, slot=slot, message="Requested slot is unavailable.")
+
+        slot = self._find_available_slot(requested_date, duration)
