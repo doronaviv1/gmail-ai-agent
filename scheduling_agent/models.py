@@ -45,3 +45,6 @@ class TimeSlot:
 class SchedulingDecision:
     action: SchedulingAction
     request: MeetingRequest
+    slot: TimeSlot | None = None
+    message: str = ""
+    metadata: dict[str, Any] = field(default_factory=dict)
