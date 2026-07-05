@@ -30,3 +30,9 @@ def write_png(path: Path, width: int, height: int, accent: tuple[int, int, int])
     png = b"\x89PNG\r\n\x1a\n"
     png += _chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0))
     png += _chunk(b"IDAT", zlib.compress(b"".join(rows), level=9))
+    png += _chunk(b"IEND", b"")
+    path.write_bytes(png)
+
+
+def main() -> None:
+    out = Path("screenshots")
