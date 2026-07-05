@@ -33,3 +33,9 @@ def test_scheduler_reports_conflict_for_busy_explicit_slot():
 
     assert decision.action == SchedulingAction.CONFLICT
 
+
+def test_scheduler_finds_first_free_slot_when_time_missing():
+    busy = [TimeSlot(datetime(2026, 7, 6, 9, tzinfo=ZoneInfo("UTC")), datetime(2026, 7, 6, 9, 30, tzinfo=ZoneInfo("UTC")))]
+    scheduler = Scheduler(FakeCalendar(busy), ZoneInfo("UTC"), time(9), time(17), 30)
+    request = MeetingRequest(True, "Demo", requested_day="2026-07-06")
+
